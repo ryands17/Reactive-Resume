@@ -2,7 +2,7 @@ name: reactive_resume
 
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:18.4
     restart: unless-stopped
     networks:
       - data_network
@@ -22,7 +22,7 @@ services:
       retries: 3
 
   redis:
-    image: redis:latest
+    image: redis:8.8.0
     restart: unless-stopped
     command: redis-server --appendonly yes
     networks:
@@ -42,7 +42,7 @@ services:
       retries: 3
 
   seaweedfs:
-    image: chrislusf/seaweedfs:latest
+    image: chrislusf/seaweedfs:4.39
     restart: unless-stopped
     command: server -s3 -filer -dir=/data -ip=0.0.0.0
     networks:
@@ -62,7 +62,7 @@ services:
       retries: 3
 
   seaweedfs_create_bucket:
-    image: quay.io/minio/mc:latest
+    image: quay.io/minio/mc:RELEASE.2025-08-13T08-35-41Z
     restart: on-failure
     entrypoint: >
       /bin/sh -c "

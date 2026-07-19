@@ -3,8 +3,8 @@ packages:
   - packages/*
   - tooling
 patchedDependencies:
-  '@react-pdf/textkit@6.3.0': patches/@react-pdf__textkit@6.3.0.patch
-minimumReleaseAge: 0
+  "@react-pdf/textkit@6.3.0": patches/@react-pdf__textkit@6.3.0.patch
+minimumReleaseAge: 10080
 allowBuilds:
   bcrypt: true
   esbuild: true

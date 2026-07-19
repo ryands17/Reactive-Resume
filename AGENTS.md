@@ -155,3 +155,17 @@ Vitest test paths are package-relative when running through `pnpm --filter <pack
 - Most packages use `tsgo --noEmit` for typechecking and `vitest run --passWithNoTests` for tests.
 - There may be unrelated local edits in the worktree. Inspect `git status --short` first and avoid reverting files you did not touch.
 - **New env vars require a `turbo.json` entry.** Turborepo 2.x runs in strict env mode by default — it filters out env vars that are not listed in `globalEnv` (or task-level `env`/`passThroughEnv`). Any new environment variable added to `packages/env/src/server.ts` must also be added to the `globalEnv` array in `turbo.json`, or the variable will be `undefined` inside child processes at runtime even if it is correctly set in the OS/container environment.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live as GitHub issues on the fork `ryands17/Reactive-Resume` (`origin` remote), via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default five canonical labels (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Multi-context layout: root `CONTEXT-MAP.md` + per-app/per-package `CONTEXT.md` and `docs/adr/`. See `docs/agents/domain.md`.

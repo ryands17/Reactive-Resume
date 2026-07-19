@@ -27,7 +27,7 @@
 		"db:migrate": "turbo run db:migrate --filter=@reactive-resume/db",
 		"db:studio": "turbo run db:studio --filter=@reactive-resume/db",
 		"lingui:extract": "turbo run lingui:extract --filter=web",
-		"dev": "turbo run dev",
+		"dev": "docker compose -f compose.dev.yml up -d postgres redis seaweedfs seaweedfs_create_bucket && turbo run dev",
 		"dev:web": "turbo run dev --filter=web",
 		"knip": "knip",
 		"start": "node apps/server/dist/index.mjs",
