@@ -1,0 +1,26 @@
+.pnpm-store
+
+# Build Outputs
+dist
+
+# Environment Variables
+.env*
+
+# Turborepo
+.turbo
+
+# TanStack Start
+.tanstack
+
+# Cache
+.cache
+
+# AI
+.codex
+.agents
+.claude
+.cursor
+.codegraph
+.superpowers
+.migration
+
