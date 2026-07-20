@@ -71,7 +71,7 @@ If your company would like to sponsor Reactive Resume, email [hello@amruthpillai
 
 **Extras**
 
-- AI integration (OpenAI, Google Gemini, Anthropic Claude)
+- AI integration (OpenAI, Anthropic Claude, and more)
 - Multi-language support
 - Share resumes via unique links
 - Import from JSON Resume format

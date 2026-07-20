@@ -3175,15 +3175,7 @@
 										"minLength": 1
 									},
 									"provider": {
-										"enum": [
-											"openai",
-											"anthropic",
-											"gemini",
-											"vercel-ai-gateway",
-											"openrouter",
-											"ollama",
-											"openai-compatible"
-										],
+										"enum": ["openai", "anthropic", "vercel-ai-gateway", "openrouter", "ollama", "openai-compatible"],
 										"type": "string"
 									},
 									"model": {
@@ -3351,15 +3343,7 @@
 										"minLength": 1
 									},
 									"provider": {
-										"enum": [
-											"openai",
-											"anthropic",
-											"gemini",
-											"vercel-ai-gateway",
-											"openrouter",
-											"ollama",
-											"openai-compatible"
-										],
+										"enum": ["openai", "anthropic", "vercel-ai-gateway", "openrouter", "ollama", "openai-compatible"],
 										"type": "string"
 									},
 									"model": {

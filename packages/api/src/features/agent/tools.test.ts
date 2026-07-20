@@ -69,7 +69,6 @@ describe("agent tools", () => {
 
 	it.each<AIProvider>([
 		"anthropic",
-		"gemini",
 		"vercel-ai-gateway",
 		"openrouter",
 		"ollama",
