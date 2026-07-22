@@ -142,22 +142,33 @@ describe("AISettingsSection", () => {
 		mutations.delete.mockReset();
 	});
 
-	it("offers popular AI SDK providers and labels Ollama as cloud-hosted", () => {
+	it("offers only the supported providers and labels Ollama as cloud-hosted", () => {
 		renderSection();
 
 		for (const label of [
+			"OpenAI",
+			"Anthropic Claude",
+			"Vercel AI Gateway",
+			"OpenRouter",
 			"Mistral AI",
+			"Groq",
+			"Ollama Cloud",
+			"OpenAI-compatible",
+		]) {
+			expect(screen.getByRole("option", { name: label })).toBeInTheDocument();
+		}
+
+		for (const label of [
+			"Google Gemini",
 			"Cohere",
 			"xAI Grok",
-			"Groq",
 			"DeepSeek",
 			"Together.ai",
 			"Fireworks",
 			"Cerebras",
 			"Perplexity",
-			"Ollama Cloud",
 		]) {
-			expect(screen.getByRole("option", { name: label })).toBeInTheDocument();
+			expect(screen.queryByRole("option", { name: label })).not.toBeInTheDocument();
 		}
 
 		expect(screen.queryByRole("option", { name: "Ollama" })).not.toBeInTheDocument();

@@ -4,18 +4,10 @@ import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { ModelMessage, UIMessage } from "ai";
 import { inflateRawSync } from "node:zlib";
 import { createAnthropic } from "@ai-sdk/anthropic";
-import { createCerebras } from "@ai-sdk/cerebras";
-import { createCohere } from "@ai-sdk/cohere";
-import { createDeepSeek } from "@ai-sdk/deepseek";
-import { createFireworks } from "@ai-sdk/fireworks";
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createGroq } from "@ai-sdk/groq";
 import { createMistral } from "@ai-sdk/mistral";
 import { createOpenAI } from "@ai-sdk/openai";
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
-import { createPerplexity } from "@ai-sdk/perplexity";
-import { createTogetherAI } from "@ai-sdk/togetherai";
-import { createXai } from "@ai-sdk/xai";
 import { streamToEventIterator } from "@orpc/server";
 import { convertToModelMessages, createGateway, generateText, stepCountIs, streamText, tool } from "ai";
 import { createOllama } from "ollama-ai-provider-v2";
@@ -97,18 +89,10 @@ export function getModel(input: GetModelInput) {
 	return match(provider)
 		.with("openai", () => createOpenAI({ apiKey, baseURL }).chat(model))
 		.with("anthropic", () => createAnthropic({ apiKey, baseURL }).languageModel(model))
-		.with("gemini", () => createGoogleGenerativeAI({ apiKey, baseURL }).languageModel(model))
 		.with("vercel-ai-gateway", () => createGateway({ apiKey, baseURL }).languageModel(model))
 		.with("openrouter", () => createOpenAICompatible({ name: "openrouter", apiKey, baseURL }).languageModel(model))
 		.with("mistral", () => createMistral({ apiKey, baseURL }).languageModel(model))
-		.with("cohere", () => createCohere({ apiKey, baseURL }).languageModel(model))
-		.with("xai", () => createXai({ apiKey, baseURL }).languageModel(model))
 		.with("groq", () => createGroq({ apiKey, baseURL }).languageModel(model))
-		.with("deepseek", () => createDeepSeek({ apiKey, baseURL }).languageModel(model))
-		.with("togetherai", () => createTogetherAI({ apiKey, baseURL }).languageModel(model))
-		.with("fireworks", () => createFireworks({ apiKey, baseURL }).languageModel(model))
-		.with("cerebras", () => createCerebras({ apiKey, baseURL }).languageModel(model))
-		.with("perplexity", () => createPerplexity({ apiKey, baseURL }).languageModel(model))
 		.with("openai-compatible", () =>
 			createOpenAICompatible({ name: "openai-compatible", apiKey, baseURL }).languageModel(model),
 		)
